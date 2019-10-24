@@ -1,4 +1,4 @@
-from pyVmomi import vim
+
 from pyVim.connect import SmartConnect, Disconnect
 import ssl
 
@@ -33,17 +33,7 @@ def data_center():
         print("vCenter build : ", content.about.build)
 
 
-def get_vms():
-    vms = get_all_obj(content, [vim.VirtualMachine])
-    for vm in vms:
-        print(vm.name)
-
-
-clusters = get_all_obj(content, [vim.ClusterComputeResource])
-for cluster in clusters:
-    print("ClusterName:", cluster.name)
-
 
 if __name__ == "__main__":
     data_center()
-    get_vms()
+
