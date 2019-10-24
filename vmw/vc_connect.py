@@ -13,12 +13,19 @@ except:
     c = SmartConnect(host="192.168.1.11", user="vmadmin", pwd="VMware1!", sslContext=s)
     print('Invalid or untrusted certificate')
 
-datacenter = c.content.rootFolder.childEntity
-for i in datacenter:
-    print("Datacenter : ", i.name)
+
+def data_center():
+    datacenter = c.content.rootFolder
+    for i in datacenter.childEntity:
+        print("Datacenter : ", i.name)
+        print("Time :", c.CurrentTime())
+        print("vCenter Version : ", c.content.about.version)
+        print("vCenter build : ", c.content.about.build)
 
 
-print("Time :", c.CurrentTime())
-print("vCenter Version : ", c.content.about.version)
-print("vCenter build : ", c.content.about.build)
+if __name__ == "__main__":
+    data_center()
+
+
+
 
