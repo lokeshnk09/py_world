@@ -13,7 +13,7 @@ def get_vms():
     vms = get_all_obj(content, [vim.VirtualMachine])
     _virtual_machines = {}
     for vm in vms:
-        print(count, vm.name)
+        print('{}-VirtualName: {}' .format(count, vm.name))
         count += 1
     return vms
 
