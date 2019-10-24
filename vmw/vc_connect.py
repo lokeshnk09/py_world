@@ -25,12 +25,15 @@ def get_all_obj(content, viewtype):
 
 
 def data_center():
-    datacenter = content.rootFolder.childEntity
-    for i in datacenter:
+    dc = content.rootFolder.childEntity
+    for i in dc:
         print("Datacenter : ", i.name)
         print("Time :", sc.CurrentTime())
         print("vCenter Version : ", content.about.version)
         print("vCenter build : ", content.about.build)
+
+
+Disconnect(s)
 
 
 if __name__ == "__main__":
