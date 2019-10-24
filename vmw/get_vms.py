@@ -1,6 +1,5 @@
 from pyVmomi import vim
-from vmw.vc_connect import *
-from pyVim.connect import SmartConnect, Disconnect
+from vmw.vc_connect import get_all_obj, content
 
 
 clusters = get_all_obj(content, [vim.ClusterComputeResource])
