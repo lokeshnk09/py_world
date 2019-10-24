@@ -33,7 +33,6 @@ def data_center():
         print("vCenter build : ", content.about.build)
 
 
-
 if __name__ == "__main__":
     data_center()
 
