@@ -1,5 +1,5 @@
 
-from pyVim.connect import SmartConnect, Disconnect
+from pyVim import connect
 import ssl
 
 
@@ -7,12 +7,12 @@ s = ssl.SSLContext(ssl.PROTOCOL_SSLv23)  # For VC 6.5/6.0 s=ssl.SSLContext(ssl.P
 s.verify_mode = ssl.CERT_NONE
 
 try:
-    sc = SmartConnect(host="192.168.1.11", user="administrator@vsphere.local", pwd="VMware1!", sslContext=s)
+    sc = connect.SmartConnect(host="192.168.1.11", user="administrator@vsphere.local", pwd="VMware1!", sslContext=s)
     content = sc.content
     print('Valid certificate')
 
 except:
-    sc = SmartConnect(host="192.168.1.11", user="vmadmin", pwd="VMware1!", sslContext=s)
+    sc = connect.SmartConnect(host="192.168.1.11", user="vmadmin", pwd="VMware1!", sslContext=s)
     print('Invalid or untrusted certificate')
 
 
@@ -31,9 +31,6 @@ def data_center():
         print("Time :", sc.CurrentTime())
         print("vCenter Version : ", content.about.version)
         print("vCenter build : ", content.about.build)
-
-
-Disconnect(s)
 
 
 if __name__ == "__main__":
