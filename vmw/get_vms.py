@@ -12,12 +12,27 @@ def get_vms():
     vms = get_all_obj(content, [vim.VirtualMachine])
     _virtual_machines = {}
     for vm in vms:
-        print('{}-VirtualName: {}' .format(count, vm.name))
+        print('{}-VM_Name : {}' .format(count, vm.name))
         count += 1
+
     return vms
 
 
-v = get_vms()
+def get_vm_snapshot():
+    for vm in get_all_obj(content, [vim.VirtualMachine]):
+        if not vm or vm.snapshot is None:
+            continue
+        else:
+            for sn in vm.snapshot.rootSnapshotList:
+                print("snapshot : ", vm.name, sn.name, sn.description)
+
+
+if __name__ == '__main__':
+    get_vms()
+    get_vm_snapshot()
+
+
+
 
 
 ''''
