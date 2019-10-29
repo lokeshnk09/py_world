@@ -1,5 +1,5 @@
 
-class Student():
+class Student:
 
     School = 'SVS'
 
