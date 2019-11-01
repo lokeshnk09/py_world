@@ -23,7 +23,6 @@ class Student:
         return '{} {}'.format(self.m1, self.m2)
 
 
-
 s1 = Student(60, 20)
 s2 = Student(20, 40)
 

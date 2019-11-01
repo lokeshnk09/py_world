@@ -30,3 +30,4 @@ print(av1)
 print(av2)
 print(Student.get_school_info())
 print(Student.info())
+
