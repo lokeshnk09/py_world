@@ -14,48 +14,30 @@ import re
 
 class Vehicle:
 
-    def __init__(self, car, truck):
-        self.car = car
-        self.truck = truck
+    def __init__(self, make, model, owner):
+        self.make = make
+        self.model = model
+        self.owner = owner
+
+    def owner_name(self):
+        self.owner = input('Enter Vehicle owner Name: ')
+        return
 
     def make(self):
-        return input('Enter make:')
+        return self.make(input('Enter make:'))
 
     def model(self):
-        return int(input('Enter model:'))
+        return self.model(int(input('Enter model:')))
+
+    def set_Lic_Plate(self, owner):
+        print('OwnerName:', owner)
+        l_p = input('Enter License Plate no:')
+        m = re.fullmatch('[0-9][A-Z]{3}\d{3}', l_p)
+        if m != None:
+            return {owner: l_p}
 
 
-
-class Dmv(Vehicle):
-    def __init__(self, ct, pt, lic_plate):
-        self.ct = ct
-        self.pt = pt
-        self.lic_plate = lic_plate(input('Enter Lic Plate No:'))
-        m = re.fullmatch('[0-9][A-Z]{3}\d{3}', lic_plate)
-        if m!= None:
-            print("valid number")
-        else:
-            print('Invalid number')
-
-    def cur_time(self):
-        self.ct = datetime.datetime.now()
-        return self.ct.strftime("%m-%d-%Y %I:%M")
-
-    def pre_time(self):
-        self.pt = datetime.date(2018, 12, 31)
-        return self.pt
-
-    def __lt__(self, date):
-        print(self.pt - date)
-
-    def set_lic(self):
-        pass
-
-    def get_lic(self):
-        pass
-
-
-
-
-
+if __name__ == '__main__':
+    v = Vehicle('Lokesh', 2017, 'Mazda')
+    v.set_Lic_Plate('Lokesh')
 
