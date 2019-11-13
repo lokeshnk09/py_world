@@ -1,9 +1,6 @@
 import re
-count = 0
-pattern = re.compile('ab')
-matcher = pattern.finditer('absaabaddab')
-for match in matcher:
-    count+=1
-    print("match avialable at stat index is:", match.start())
-
-print("no of times match found", count)
+l_P = input('Enter License Plate No:')
+m = re.fullmatch('[0-9][A-Z]{3}\d{3}', l_P)
+if m != None:
+    print(l_P)
+    # print("OwnerName: {0}: \nLicense_plate: {1}".format(owner, self.set_Lic_Plate))

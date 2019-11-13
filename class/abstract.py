@@ -8,36 +8,51 @@ import re
 #help(datetime)
 #now = datetime.datetime.now()
 #prev = datetime.date(2018, 12, 31)
-
-
 #pre_year = (calendar.TextCalendar(calendar.SUNDAY).formatyear(2018, 2, 1, 1, 2))
 
-class Vehicle:
 
-    def __init__(self, make, model, owner):
-        self.make = make
-        self.model = model
-        self.owner = owner
+class Dmv:
 
-    def owner_name(self):
-        self.owner = input('Enter Vehicle owner Name: ')
-        return
+    def __init__(self):
+        self.lic_plate = None
+        self.vehicle = self.Vehicle()
 
-    def make(self):
-        return self.make(input('Enter make:'))
+    def set_lic_plate(self):
+        self.lic_plate = input('Enter License Plate No:')
+        l_P = re.fullmatch('[0-9][A-Z]{3}\d{3}', self.lic_plate)
+        if l_P != None:
+            return self.lic_plate
+        else:
+            print('Invalid No!')
+            # print("OwnerName: {0}: \nLicense_plate: {1}".format(owner, self.set_Lic_Plate))
 
-    def model(self):
-        return self.model(int(input('Enter model:')))
+    def get_lic_plate(self):
+        return self.lic_plate
 
-    def set_Lic_Plate(self, owner):
-        print('OwnerName:', owner)
-        l_p = input('Enter License Plate no:')
-        m = re.fullmatch('[0-9][A-Z]{3}\d{3}', l_p)
-        if m != None:
-            return {owner: l_p}
+    class Vehicle:
+        def __init__(self):
+            pass
+
+        def owner(self):
+            return input('Enter Vehicle owner Name: ')
+
+        def make(self):
+            return input('Enter make:')
+
+        def model(self):
+            return int(input('Enter model:'))
 
 
-if __name__ == '__main__':
-    v = Vehicle('Lokesh', 2017, 'Mazda')
-    v.set_Lic_Plate('Lokesh')
+car = Dmv()
+car.set_lic_plate()
+print(car.get_lic_plate())
+
+
+
+
+
+
+
+
+
 
