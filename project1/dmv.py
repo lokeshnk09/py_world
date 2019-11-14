@@ -26,8 +26,9 @@ class Dmv:
             print('Invalid No!')
             # print("OwnerName: {0}: \nLicense_plate: {1}".format(owner, self.set_Lic_Plate))
 
-    def get_lic_plate(self):
-        return self.lic_plate
+    def show_lic_plate(self):
+        res = (self.vehicle.owner(), self.lic_plate)
+        return tuple(res)
 
     class Vehicle:
         def __init__(self):
@@ -42,10 +43,17 @@ class Dmv:
         def model(self):
             return int(input('Enter model:'))
 
+        def show_vehicle(self, owner):
+            pass
 
-car = Dmv()
-car.set_lic_plate()
-print(car.get_lic_plate())
+
+if __name__ == '__main__':
+    car = Dmv()
+    car.set_lic_plate()
+    print(car.show_lic_plate())
+
+
+
 
 
 

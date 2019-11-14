@@ -17,7 +17,7 @@ class Student:
 
     @staticmethod
     def info():
-        print('Welcome to SVS School')
+        return 'Welcome to SVS School'
 
 
 s1 = Student(52,65,98)
