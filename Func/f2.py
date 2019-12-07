@@ -1,6 +1,19 @@
+
 import re
-l_P = input('Enter License Plate No:')
-m = re.fullmatch('[0-9][A-Z]{3}\d{3}', l_P)
-if m != None:
-    print(l_P)
-    # print("OwnerName: {0}: \nLicense_plate: {1}".format(owner, self.set_Lic_Plate))
+
+string = 'John has 6 cats but I think my friend Susan has 3 dogs and Mike has 8 fishes'
+
+
+st = re.findall('([A-Za-z]+) \w+ (\d+) (\w+)', string)
+print(st)
+
+t = list(zip(*st))
+print(t)
+
+m = re.search('([A-Za-z]+) \w+ (\d+) (\w+)', string)
+print(m.group())
+
+
+
+
+
