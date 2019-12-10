@@ -1,15 +1,15 @@
 from pyVmomi import vim
-from vmw.vc_connect import get_all_obj, content
+from vmw.vc_connect import get_all_obj, sc
 
 
-clusters = get_all_obj(content, [vim.ClusterComputeResource])
+clusters = get_all_obj(sc, [vim.ClusterComputeResource])
 for cluster in clusters:
     print("ClusterName:", cluster.name)
 
 
 def get_vms():
     count = 0
-    vms = get_all_obj(content, [vim.VirtualMachine])
+    vms = get_all_obj(sc, [vim.VirtualMachine])
     _virtual_machines = {}
     for vm in vms:
         print('{}-VM_Name : {}' .format(count, vm.name))
@@ -19,7 +19,7 @@ def get_vms():
 
 
 def get_vm_snapshot():
-    for vm in get_all_obj(content, [vim.VirtualMachine]):
+    for vm in get_all_obj(sc, [vim.VirtualMachine]):
         if not vm or vm.snapshot is None:
             continue
         else:
