@@ -6,12 +6,12 @@ s = ssl.SSLContext(ssl.PROTOCOL_SSLv23)  # For VC 6.5/6.0 s=ssl.SSLContext(ssl.P
 s.verify_mode = ssl.CERT_NONE
 
 try:
-    sc = connect.SmartConnect(host="192.168.1.11", user="administrator@vsphere.local", pwd="VMware1!", sslContext=s)
-    content = sc.content
+    service_instance = connect.SmartConnect(host="192.168.1.11", user="administrator@vsphere.local", pwd="VMware1!", sslContext=s)
+    sc = service_instance.content
     print('Valid certificate')
 
 except:
-    sc = connect.SmartConnect(host="192.168.1.11", user="vmadmin", pwd="VMware1!", sslContext=s)
+    service_instance = connect.SmartConnect(host="192.168.1.11", user="vmadmin", pwd="VMware1!", sslContext=s)
     print('Invalid or untrusted certificate')
 
 
@@ -24,12 +24,12 @@ def get_all_obj(content, viewtype):
 
 
 def data_center():
-    dc = content.rootFolder.childEntity
+    dc = sc.rootFolder.childEntity
     for i in dc:
         print("Datacenter : ", i.name)
-        print("Time :", sc.CurrentTime())
-        print("vCenter Version : ", content.about.version)
-        print("vCenter build : ", content.about.build)
+        print("Time :", service_instance.CurrentTime())
+        print("vCenter Version : ", sc.about.version)
+        print("vCenter build : ", sc.about.build)
 
 
 if __name__ == "__main__":
