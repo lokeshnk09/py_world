@@ -37,5 +37,4 @@ class Vehicle:
 if __name__ == '__main__':
     v = Vehicle()
     v.show_vehicle()
-    v.dmv.set_lic_plate
     v.dmv.get_lic_plate()
